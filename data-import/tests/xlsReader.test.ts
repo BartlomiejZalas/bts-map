@@ -1,4 +1,4 @@
-import { readAntenasData } from '../xlsReader';
+import { readAntenasData } from '../src/xlsReader';
 
 describe('XLSX Reader', () => {
     it('should convert data from xlsx to array of antenas', () => {

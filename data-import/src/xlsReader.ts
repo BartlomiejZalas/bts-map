@@ -1,6 +1,6 @@
 import xlsx from 'node-xlsx';
-import { Antena } from './Antena';
-import { Coordinates } from './Coordinates';
+import { Antena } from './antena';
+import { Coordinates } from './coordinates';
 const parseDMS = require('parse-dms');
 
 const getSheetData = (fileName: string): string[][] => {
