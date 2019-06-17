@@ -1,5 +1,4 @@
-
-import { Coordinates } from "./coordinates";
+import { Coordinates } from "./domain";
 // const parseDMS = require('parse-dms');
 import parseDMS from 'parse-dms';
 
@@ -14,10 +13,9 @@ const normalizeDms = (dmsLike: string): string => {
 }
 
 const convertToLatLng = (dmsLat: string, dmsLng: string): Coordinates => {
-
     const coordinatesInConvertableFormat = normalizeDms(dmsLat) + ' ' + normalizeDms(dmsLng);
     const latLng = parseDMS(coordinatesInConvertableFormat);
-    return { lat: latLng.lat, lng: latLng.lon };
+    return new Coordinates(latLng.lat, latLng.lon);
 }
 
 export default convertToLatLng;

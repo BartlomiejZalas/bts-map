@@ -1,21 +1,21 @@
 import xlsx from 'node-xlsx';
-import { Antena } from './antena';
 import convertToLatLng from './dmsToLatLngConverter';
+import { Bts } from "./domain";
 
 const getSheetData = (fileName: string): string[][] => {
     return xlsx.parse(fileName)[0].data;
 };
 
-const createBtsData = (sheet: string[][]): Antena[] => {
+const createBtsData = (sheet: string[][]): Bts[] => {
     return sheet
         .slice(1)
         .map(row => {
             const coordinates = convertToLatLng(row[2], row[1]);
-            return { lat: coordinates.lat, lng: coordinates.lng, name: row[6] }
+            return new Bts(coordinates.lat, coordinates.lng, row[6]);
         });
 };
 
-const readBtsData = (filePath: string): Antena[] => {
+const readBtsData = (filePath: string): Bts[] => {
     try {
         const sheet = getSheetData(filePath);
         return createBtsData(sheet);
