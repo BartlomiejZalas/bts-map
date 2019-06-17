@@ -20,7 +20,7 @@ const readBtsData = (filePath: string): Antena[] => {
         const sheet = getSheetData(filePath);
         return createBtsData(sheet);
     } catch (e) {
-        throw new Error("Error during reading XLSX file '" + filePath + "': " + e);
+        throw new Error(`Error during reading XLSX file ${filePath}: ${e}`);
     }
 }
 
