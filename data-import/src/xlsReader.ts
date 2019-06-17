@@ -23,7 +23,7 @@ const convertToLatLng = (dmsLat: string, dmsLng: string): Coordinates => {
     return { lat: latLng.lat, lng: latLng.lon };
 }
 
-const createAntenasData = (sheet: string[][]): Antena[] => {
+const createBtsData = (sheet: string[][]): Antena[] => {
 
     return sheet
         .slice(1)
@@ -36,8 +36,8 @@ const createAntenasData = (sheet: string[][]): Antena[] => {
 const readBtsData = (filePath: string): Antena[] => {
     try {
         const sheet = getSheetData(filePath);
-        const antenaData = createAntenasData(sheet);
-        return antenaData;
+        const btsData = createBtsData(sheet);
+        return btsData;
     } catch (e) {
         throw new Error("Error during reading XLSX file '" + filePath + "': " + e);
     }
