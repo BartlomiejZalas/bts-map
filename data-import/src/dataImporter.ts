@@ -1,5 +1,5 @@
 import getData from './xlsReader';
-import getBtsData from './xlsToBtsConverter';
+import getBtsData from './rawDataToBtsConverter';
 
 const importData = (xlsPath: string) : void => {
     const rawData = getData(xlsPath);
