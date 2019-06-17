@@ -1,5 +1,5 @@
-import {readBtsData} from '../src/xlsReader';
-import {expect} from 'chai';
+import { readBtsData } from '../src/xlsReader';
+import { expect } from 'chai';
 
 describe('XLSX Reader', () => {
     it('should convert data from xlsx to array of antenas', () => {
