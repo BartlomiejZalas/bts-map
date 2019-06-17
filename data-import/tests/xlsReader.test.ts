@@ -15,4 +15,9 @@ describe('XLSX Reader', () => {
         expect(btsData[13][1]).to.be.eq("18E36'21.6''");
         expect(btsData[13][6]).to.be.eq('ul. Różana 3');
     });
+
+    it('should throw error when not existing file provided', () => {
+        const notExistingPath = __dirname + '/data/not-existing.xlsx';
+        expect(() => readXlsData(notExistingPath)).to.throw('Error during reading XLSX file');
+    });
 });
