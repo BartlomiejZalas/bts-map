@@ -6,7 +6,7 @@ const normalizeDms = (dmsLike: string): string => {
     const regex = new RegExp('[NSWE]');
     const matchResult = dmsLike.match(regex);
     if (matchResult === null) {
-        throw new Error("Expected coordinates to contains letters: " + regex);
+        throw new Error("Expected coordinates to contain letters: " + regex);
     }
     const directionLetter = matchResult[0];
     return dmsLike.replace(directionLetter, "°") + directionLetter;
