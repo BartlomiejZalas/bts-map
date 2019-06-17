@@ -33,7 +33,7 @@ const createAntenasData = (sheet: string[][]): Antena[] => {
         });
 }
 
-const readAntenasData = (filePath: string): Antena[] => {
+const readBtsData = (filePath: string): Antena[] => {
     try {
         const sheet = getSheetData(filePath);
         const antenaData = createAntenasData(sheet);
@@ -43,4 +43,4 @@ const readAntenasData = (filePath: string): Antena[] => {
     }
 }
 
-export { readAntenasData };
+export { readBtsData };
