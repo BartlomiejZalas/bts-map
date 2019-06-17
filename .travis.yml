@@ -1,6 +1,8 @@
 language: node_js
 node_js:
   - "8"
+before_install: cd $TRAVIS_BUILD_DIR/data-import
+install: npm install
 
-install: npm install data-import
-script: cd data-import && npm run test
+before_script: cd $TRAVIS_BUILD_DIR/data-import
+script: npm run test
