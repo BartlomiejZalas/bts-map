@@ -9,7 +9,7 @@ const getSheetData = (fileName: string): string[][] => {
 
 const convertToLatLng = (dmsLat: string, dmsLng: string): Coordinates => {
     const parseToProperFormat = (dmsLike: string): string => {
-        const regex = new RegExp("N|S|W|E");
+        const regex = new RegExp('[NSWE]');
         const matchResult = dmsLike.match(regex);
         if (matchResult === null) {
             throw new Error("Expected coordinates to contains letters: " + regex);
