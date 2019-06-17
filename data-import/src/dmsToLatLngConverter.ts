@@ -1,5 +1,4 @@
 import { Coordinates } from "./domain";
-// const parseDMS = require('parse-dms');
 import parseDMS from 'parse-dms';
 
 const directionRegex = new RegExp('[NSWE]');
