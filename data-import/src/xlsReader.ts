@@ -1,27 +1,23 @@
 import xlsx from 'node-xlsx';
-import convertToLatLng from './dmsToLatLngConverter';
-import { Bts } from "./domain";
+
+const firstSheet = 0;
 
 const getSheetData = (fileName: string): string[][] => {
-    return xlsx.parse(fileName)[0].data;
+    return xlsx.parse(fileName)[firstSheet].data;
 };
 
-const createBtsData = (sheet: string[][]): Bts[] => {
-    return sheet
-        .slice(1)
-        .map(row => {
-            const coordinates = convertToLatLng(row[2], row[1]);
-            return new Bts(coordinates.lat, coordinates.lng, row[6]);
-        });
+const removeHeader = (data: string[][]): string[][] => {
+    return data.slice(1);
 };
 
-const readBtsData = (filePath: string): Bts[] => {
+const readXlsData = (filePath: string): string[][] => {
     try {
         const sheet = getSheetData(filePath);
-        return createBtsData(sheet);
+        const rawData = removeHeader(sheet);
+        return rawData;
     } catch (e) {
         throw new Error(`Error during reading XLSX file ${filePath}: ${e}`);
     }
 };
 
-export { readBtsData };
+export default readXlsData;
