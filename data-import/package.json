@@ -11,8 +11,10 @@
   "author": "Bartłomiej Zalas",
   "license": "ISC",
   "dependencies": {
+    "@types/mongodb": "^3.1.28",
     "@types/node": "^12.0.7",
     "@types/node-xlsx": "^0.12.1",
+    "mongodb": "^3.2.7",
     "node-xlsx": "^0.15.0",
     "parse-dms": "0.0.3"
   },
