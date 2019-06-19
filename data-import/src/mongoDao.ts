@@ -24,17 +24,14 @@ const convertBtsToDocument = (bts: Bts): MongoBtsFromat => {
     };
 };
 
-export const insertBtses: InsertBts = async (btses: Bts[]) => {
+export const insertBtses: InsertBts = async (btses: Bts[]): Promise<void> => {
 
-    const options: MongoClientOptions = {};
-    const mongoClient = await MongoClient.connect(url, options);
+    const mongoClient = await MongoClient.connect(url, {});
     const database = mongoClient.db("btsMap");
     const btsCollection = database.collection('bts');
 
     const documents: MongoBtsFromat[] = btses.map(b => convertBtsToDocument(b));
-    const result = await btsCollection.insertMany(documents);
+    await btsCollection.insertMany(documents);
 
     await mongoClient.close();
-
-    console.log(result);
 };
