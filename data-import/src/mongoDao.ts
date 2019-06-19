@@ -1,6 +1,6 @@
 import { InsertBts } from "./dao";
 import { Bts } from "./domain";
-import { MongoClient, MongoClientOptions } from 'mongodb';
+import { MongoClient } from 'mongodb';
 
 const url = "mongodb://localhost:27017/";
 
