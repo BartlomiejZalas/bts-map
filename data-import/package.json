@@ -11,11 +11,11 @@
   "author": "Bartłomiej Zalas",
   "license": "ISC",
   "nyc": {
-    "extends": "@istanbuljs/nyc-config-typescript",
     "all": true,
     "include": ["src/"],
     "extension": [".ts"],
-    "reporter": [ "text", "lcov"]
+    "reporter": [ "text", "lcov"],
+    "require": ["ts-node/register"]
   },
   "dependencies": {
     "@istanbuljs/nyc-config-typescript": "^0.1.3",
