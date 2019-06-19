@@ -14,7 +14,7 @@ interface MongoBtsFromat {
     location: MongoLocationFormat,
 }
 
-const convertBtsToDocument = (bts:Bts): MongoBtsFromat => {
+const convertBtsToDocument = (bts: Bts): MongoBtsFromat => {
     return {
         name: bts.name,
         location: {
@@ -24,7 +24,7 @@ const convertBtsToDocument = (bts:Bts): MongoBtsFromat => {
     };
 };
 
-export const insertBtses: InsertBts = async(btses: Bts[]) => {
+export const insertBtses: InsertBts = async (btses: Bts[]) => {
 
     const options: MongoClientOptions = {};
     const mongoClient = await MongoClient.connect(url, options);
