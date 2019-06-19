@@ -18,6 +18,6 @@ describe('XLSX Reader', () => {
 
     it('should throw error when not existing file provided', () => {
         const notExistingPath = __dirname + '/data/not-existing.xlsx';
-        expect(() => readXlsData(notExistingPath)).to.throw('Error during reading XLSX file');
+        expect(() => readXlsData(notExistingPath)).to.throw('Error during reading XLSX data');
     });
 });
