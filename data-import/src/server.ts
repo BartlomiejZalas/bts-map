@@ -6,11 +6,9 @@ import { NextFunction, Request, Response } from "express-serve-static-core";
 const app: express.Application = express();
 const port = 3000;
 
-app.use(fileUpload({limits: {fileSize: 50 * 1024 * 1024}}));
+const infoHandler = (req: Request, res: Response) => res.send('Running!');
 
-app.get('/', (req, res) => res.send('Running!'));
-
-app.post('/upload', async (req: Request, res: Response, next: NextFunction) => {
+const fileUploadHandler = async (req: Request, res: Response, next: NextFunction) => {
     if (req.files && req.files.file) {
         try {
             const file = req.files.file as fileUpload.UploadedFile;
@@ -22,6 +20,10 @@ app.post('/upload', async (req: Request, res: Response, next: NextFunction) => {
     } else {
         res.sendStatus(400);
     }
-});
+};
+
+app.use(fileUpload({limits: {fileSize: 50 * 1024 * 1024}}));
+app.get('/', infoHandler);
+app.post('/upload', fileUploadHandler);
 
 app.listen(port, () => console.log(`Server listening on port ${port}!`));
