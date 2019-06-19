@@ -9,12 +9,12 @@ interface MongoLocationFormat {
     coordinates: number[]
 }
 
-interface MongoBtsFromat {
+interface MongoBtsFormat {
     name: string
     location: MongoLocationFormat,
 }
 
-const convertBtsToDocument = (bts: Bts): MongoBtsFromat => {
+const convertBtsToDocument = (bts: Bts): MongoBtsFormat => {
     return {
         name: bts.name,
         location: {
@@ -30,7 +30,7 @@ export const insertBtses: InsertBts = async (btses: Bts[]): Promise<void> => {
     const database = mongoClient.db("btsMap");
     const btsCollection = database.collection('bts');
 
-    const documents: MongoBtsFromat[] = btses.map(b => convertBtsToDocument(b));
+    const documents: MongoBtsFormat[] = btses.map(b => convertBtsToDocument(b));
     await btsCollection.insertMany(documents);
 
     await mongoClient.close();
