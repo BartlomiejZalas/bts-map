@@ -15,7 +15,7 @@ const fileUploadHandler = async (req: Request, res: Response, next: NextFunction
             await importData(file.data);
             res.send('File uploaded');
         } catch (e) {
-            next(e);
+            res.status(500).send(e);
         }
     } else {
         res.sendStatus(400);
@@ -27,3 +27,5 @@ app.get('/', infoHandler);
 app.post('/upload', fileUploadHandler);
 
 app.listen(port, () => console.log(`Server listening on port ${port}!`));
+
+export default app;

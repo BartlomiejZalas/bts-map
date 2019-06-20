@@ -4,7 +4,7 @@
   "description": "",
   "main": "dataImporter.js",
   "scripts": {
-    "test": "mocha -r ts-node/register tests/**/*.test.ts",
+    "test": "mocha -r ts-node/register tests/**/*.test.ts --exit",
     "testWithCoverage": "nyc npm run test",
     "tsc": "tsc"
   },
@@ -42,11 +42,13 @@
   "devDependencies": {
     "@types/chai": "^4.1.7",
     "@types/chai-as-promised": "^7.1.0",
+    "@types/chai-http": "^4.2.0",
     "@types/chai-spies": "^1.0.0",
     "@types/mocha": "^5.2.7",
     "@types/sinon": "^7.0.13",
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
+    "chai-http": "^4.3.0",
     "chai-spies": "^1.0.0",
     "mocha": "^6.1.4",
     "nyc": "^14.1.1",
