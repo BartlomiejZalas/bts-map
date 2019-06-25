@@ -13,17 +13,6 @@ describe('Server', () => {
         chai.spy.restore();
     });
 
-    describe('GET /', () => {
-        it('should handle GET', (done) => {
-            chai.request(app)
-                .get('/')
-                .end((err, res) => {
-                    expect(res).to.have.status(200);
-                    expect(res.text).to.eq('Running!');
-                    done();
-                });
-        });
-    });
     describe('POST /upload', () => {
         it('should display 400 when no file provided', (done) => {
             chai.request(app)
