@@ -1,5 +1,5 @@
 {
-  "name": "data-import",
+  "name": "bts-map-data-import-server",
   "version": "0.0.1",
   "description": "",
   "main": "dataImporter.js",
