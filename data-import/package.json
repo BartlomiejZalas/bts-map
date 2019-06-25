@@ -6,7 +6,8 @@
   "scripts": {
     "test": "mocha -r ts-node/register tests/**/*.test.ts --exit",
     "testWithCoverage": "nyc npm run test",
-    "tsc": "tsc"
+    "tsc": "tsc",
+    "start": "npm run tsc && node build/src/server.js"
   },
   "author": "Bartłomiej Zalas",
   "license": "ISC",
